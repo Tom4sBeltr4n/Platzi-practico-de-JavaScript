@@ -2,8 +2,9 @@
 // Objetivo: ser capaz de crear una
 
 /// Cuadrado. Usaremos este par de funciones para conectar con HTML en la clase 8
-var inpCua = document.getElementById("Lado");
+var inpCua = document.getElementById("ladCua");
 var valLadCua = inpCua.value;
+
 function perCua()
 {
     let texResPerCua=document.getElementById("valPerCua");
@@ -16,27 +17,38 @@ function áreCua ()
 };
 
 /// Triángulo
-function perTri(ladTri1, ladTri2, ladTri3)
-{
-    return ladTri1+ladTri2+ladTri3;
-};
+var inpTri1 = document.getElementById("ladTri1");
+var valLadTri1 = parseInt(inpTri1.value);
+var inpTri2 = document.getElementById("ladTri2");
+var valLadTri2 = parseInt(inpTri2.value);
+var inpTri3 = document.getElementById("ladTri3");
+var valLadTri3 = parseInt(inpTri3.value);
 
-function áreTri(ladTri1,ladTri2,ladTri3)
+function altTri()
 {
-    var vperTri=perTri(ladTri1, ladTri2, ladTri3);
-    var semPerTri=vperTri/2;
-    return Math.sqrt(semPerTri*(semPerTri-ladTri1)*(semPerTri-ladTri2)*(semPerTri-ladTri3)).toFixed(2);
-};
-
-/// Círculo
-var pi = Math.PI;
-
-function perCír(radCír)
-{
-    const diáCír = radCír * 2;
-    return diáCír*pi;
-};
-function areCír(radCír)
-{
-    return (radCír*pi)
-};
+    console.log("Lado 1: "+valLadTri1+"\n Lado 2: "+valLadTri2+"\n Lado 3: "+valLadTri3)
+    if(valLadTri1!=valLadTri2 || valLadTri3!=valLadTri1 || valLadTri3!=valLadTri2)//Descartando triángulos escalenos
+    {
+        alert("Este triángulo no es isósceles, es escaleno")
+    } else if(valLadTri1==valLadTri2 && valLadTri2==valLadTri3)//Descartando triángulos equiláteros
+    {
+        alert("Este triángulo es equilátero, no operaré con él")
+    } else
+    {
+        let lados = [];
+        lados.push(valLadTri1);
+        lados.push(valLadTri2);
+        lados.push(valLadTri3);
+        lados.sort(function(a,b){return a-b});
+        let texResAltTri=document.getElementById("valAltTri");
+        if(lados[0]==lados[1])
+        {
+            var altura = Math.sqrt((lados[1]**2)-(((lados[2])/2)**2));
+        }else
+        {
+            var altura = Math.sqrt((lados[0]**2)-(((lados[1])/2)**2));
+            
+        }
+        texResAltTri.innerHTML=altura;
+    }
+}
