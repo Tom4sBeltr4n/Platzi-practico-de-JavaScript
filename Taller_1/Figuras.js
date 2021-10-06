@@ -1,14 +1,18 @@
 // Fecha de creación: 6 de octubre de 2021
 // Objetivo: ser capaz de crear una
 
-/// Cuadrado
-function perCua(ladCua)
+/// Cuadrado. Usaremos este par de funciones para conectar con HTML en la clase 8
+var inpCua = document.getElementById("Lado");
+var valLadCua = inpCua.value;
+function perCua()
 {
-    return ladCua *4
+    let texResPerCua=document.getElementById("valPerCua");
+    texResPerCua.innerHTML=(valLadCua*4);
 };
-function áreCua (ladCua)
+function áreCua ()
 {
-    return ladCua**2
+    let texResÁreCua=document.getElementById("valÁreCua");
+    texResÁreCua.innerHTML=(valLadCua**2);
 };
 
 /// Triángulo

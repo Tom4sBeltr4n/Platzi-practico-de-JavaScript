@@ -5,10 +5,33 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Figuras :) | Práctico de JavaScript</title>
+        <style>
+            *
+            {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 2px;
+            }
+        </style>
     </head>
     <body>
-        <h1>Figuras geométricas</h1>
-        <main></main>
+        <header>
+            <h1>Figuras geométricas</h1>
+            <p>Este es el primer taller del curso práctico de JavaScript</p>
+        </header>
+        <main>
+            <h2>Cuadrado</h2>
+            <form>
+                <label for="Lado"><!--Using label wiþ for attribute focuses ðe object wiþ said id when clicking on label-->
+                    Escribe cuánto mide el lado de tu cuadrado
+                </label>
+                <input id="Lado" type="number"/> <!--only allows numbers, commas, points and letter e as value  -->
+                <button type="button" onclick="perCua()">Calcula el perímetro</button>
+                <button type="button" onclick="áreCua()">Calcula el área</button>
+            </form>
+            <p style="display: inline;">Perímetro: <p style="display: inline;" id="valPerCua"></p> </p>
+            <p style="display: inline;">Área: <p style="display: inline;" id="valÁreCua"></p> </p>
+        </main>
         <script src="Figuras.js"></script><!--src > integrated script-->
     </body>
 </html>
