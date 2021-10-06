@@ -104,5 +104,5 @@ dist
 .tern-port
 
 #Primeras clases:
-2_Prueba_de.js
+2_Prueba_de*.js
 3*.txt
