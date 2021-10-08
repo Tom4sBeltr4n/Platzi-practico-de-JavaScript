@@ -27,10 +27,10 @@ var valLadTri3 = parseInt(inpTri3.value);
 function altTri()
 {
     console.log("Lado 1: "+valLadTri1+"\n Lado 2: "+valLadTri2+"\n Lado 3: "+valLadTri3)
-    if(valLadTri1!=valLadTri2 || valLadTri3!=valLadTri1 || valLadTri3!=valLadTri2)//Descartando triángulos escalenos
+    if(valLadTri1!=valLadTri2 && valLadTri3!=valLadTri1 && valLadTri3!=valLadTri2)//Descartando triángulos escalenos
     {
         alert("Este triángulo no es isósceles, es escaleno")
-    } else if(valLadTri1==valLadTri2 && valLadTri2==valLadTri3)//Descartando triángulos equiláteros
+    } else if(valLadTri1==valLadTri2 && valLadTri2==valLadTri3 && valLadTri1 == valLadTri3)//Descartando triángulos equiláteros
     {
         alert("Este triángulo es equilátero, no operaré con él")
     } else
