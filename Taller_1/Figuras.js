@@ -49,7 +49,7 @@ function altTri()
         let texResAltTri=document.getElementById("valAltTri");
         if(lados[0]==lados[1])
         {
-            var altura = Math.sqrt((lados[1]**2)-(((lados[2])/2)**2));
+            var altura = (Math.sqrt((lados[1]**2)-(((lados[2])/2)**2))).toFixed(2);
         }else
         {
             var altura = (Math.sqrt((lados[0]**2)-(((lados[1])/2)**2))).toFixed(2);
