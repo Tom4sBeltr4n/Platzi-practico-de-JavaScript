@@ -1,4 +1,4 @@
-# Taller 2: Porcentajes y descuentso
+# Taller 2: Porcentajes y descuentos
 
 - Paso uno: definir fórmulas
 - Segundo paso: implementarlas en JS
