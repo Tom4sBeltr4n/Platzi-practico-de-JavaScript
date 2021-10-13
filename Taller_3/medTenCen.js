@@ -1,25 +1,3 @@
-// function promedio()
-// {
-//     const inpDat1 = document.getElementById("inpDat1");
-//     const dat1 = parseInt(inpDat1.value);
-//     const inpDat2 = document.getElementById("inpDat2");
-//     const dat2 = parseInt(inpDat2.value);
-//     const ansSpa = document.getElementById("resProm");
-//     let datos = []
-//     datos.push(dat1);
-//     datos.push(dat2);
-//     var suma = 0;
-//     for(var x = 0; x<datos.length;x++)
-//     {
-//         console.log(suma);
-//         var suma = suma+datos[x];
-//     };
-//     let resultado = suma/datos.length;
-//     console.log("Suma final: "+suma);
-    
-
-//     ansSpa.innerHTML = "El promedio es "+resultado;
-// }
 function calPro(lista)
 {
     const sumaLista = lista.reduce
@@ -34,4 +12,31 @@ function calPro(lista)
     return proLista;
 }
 
-//output reached
+var list = [];
+list.push(100, 200, 400, 500, 400000000);
+
+const middleList = list.length/2;
+
+function esPar(número)
+{
+    if(número % 2 == 0)
+    {
+        return true;
+    } else
+    {
+        return false;
+    }
+}
+
+if (esPar(list.length))
+{
+    const elemento1 = list[middleList-1];
+    const elemento2 = list[middleList];
+    const mediana = calPro([elemento1, elemento2]);
+    console.log(mediana);
+} else 
+{
+    const mediana = list[middleList-0.5];
+    console.log(mediana);
+}
+//reto1: hacer función de mediana, hacer que la función organice arreglos desordenados y array.sort()
