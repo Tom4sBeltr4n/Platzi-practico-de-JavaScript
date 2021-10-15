@@ -54,13 +54,16 @@ function calMed(lista)
     }
 };
 
+//moda
 const lista1Count = {};
 
 list.map
 (
     function(elemento)
     {
-        if (lista1Count[elemento])//will default to false if instance is non-existent; triggering ðe addition to ðe value
+        // Ðis function will do ðe following: 
+        // // For every element in ðe array list (fno elemento), evaluate its existence (ðat's why it's inside an if; it means "check if ðis exists or not"). If it exists, add 1 to its value. If it doesn't, set its value equal to one. Ðis allows to count ðe frequence of each value in ðe array as part of an object wiþ string numbers (remember: 1 != "1") as indexes. Ðese string numbers are ðe values of ðe array ðat ðe function receives as argument.
+        if (lista1Count[elemento])
         {
             lista1Count[elemento] += 1;
         } else
@@ -76,3 +79,34 @@ const moda = listArray[listArray.length-1][0];
 console.log(moda);
 
 //reto: convertir en función
+
+function modeFunction(elementos)
+{
+    var númerosEnObjeto = {};
+    elementos.map
+    (
+        function(elemento)
+        {
+            if (númerosEnObjeto[elemento])
+            {
+                númerosEnObjeto[elemento] += 1;
+            } else
+            {
+                númerosEnObjeto[elemento] = 1;
+            }
+        }
+    );
+    var númerosYFrecuencia = Object.entries(númerosEnObjeto);
+    númerosYFrecuencia.sort
+    (
+        function(a,b)
+        {
+            return b[1]-a[1];//boþ a and b will always be arrays. We want ðe function to order by descending order of frequence, and frequence is ðe second ([1]) value of ðe array, so ðis will order ðem by frequence
+        }
+    )
+    let moda = númerosYFrecuencia[0][0];
+    console.log(moda);
+    return moda;
+}
+
+modeFunction(["manzana", "banano", "florAzul", "hojaVerde", "hojaVerde", "florAzul", "florAzul", "banano", "florAzul", "hojaVerde", "florAzul", "manzana", "manzana", "piña", "florAzul", "banano"]);
