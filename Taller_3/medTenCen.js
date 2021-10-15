@@ -2,7 +2,7 @@ function calPro(lista)
 {
     const sumaLista = lista.reduce
     (
-        function (valorAcumulado=0, nuevoElemento) //if empty defs to 0
+        function (valorAcumulado=0, nuevoElemento) //if empty, valorAcumulado defs to 0
         {
             return valorAcumulado + nuevoElemento;
         }
@@ -13,7 +13,7 @@ function calPro(lista)
 }
 
 var list = [];
-list.push(100, 200, 400, 500, 400000000);
+list.push(1, 2, 3, 1, 2, 3, 4, 2, 2, 1, 2);
 
 const middleList = list.length/2;
 
@@ -37,7 +37,7 @@ if (esPar(list.length))
 {
     const mediana = list[middleList-0.5];
 }
-//reto1: hacer función de mediana, hacer que la función organice arreglos desordenados y array.sort()
+//reto: hacer función de mediana, hacer que la función organice arreglos desordenados y array.sort()
 
 function calMed(lista)
 {
@@ -53,3 +53,26 @@ function calMed(lista)
         return resultado;
     }
 };
+
+const lista1Count = {};
+
+list.map
+(
+    function(elemento)
+    {
+        if (lista1Count[elemento])//will default to false if instance is non-existent; triggering ðe addition to ðe value
+        {
+            lista1Count[elemento] += 1;
+        } else
+        {
+            lista1Count[elemento] = 1;
+        }
+    }
+);
+console.log(lista1Count);
+const listArray = Object.entries(lista1Count);
+listArray.sort(function(valorAcumulado,nuevoValor){return valorAcumulado[1]-nuevoValor[1]})
+const moda = listArray[listArray.length-1][0];
+console.log(moda);
+
+//reto: convertir en función
