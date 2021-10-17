@@ -72,11 +72,9 @@ list.map
         }
     }
 );
-console.log(lista1Count);
 const listArray = Object.entries(lista1Count);
 listArray.sort(function(valorAcumulado,nuevoValor){return valorAcumulado[1]-nuevoValor[1]})
 const moda = listArray[listArray.length-1][0];
-console.log(moda);
 
 //reto: convertir en función
 
@@ -105,8 +103,22 @@ function modeFunction(elementos)
         }
     )
     let moda = númerosYFrecuencia[0][0];
-    console.log(moda);
     return moda;
 }
 
-modeFunction(["manzana", "banano", "florAzul", "hojaVerde", "hojaVerde", "florAzul", "florAzul", "banano", "florAzul", "hojaVerde", "florAzul", "manzana", "manzana", "piña", "florAzul", "banano"]);
+/*Reto: añadir promedio aritmético inicia aquí*/  
+var lisProAri = [21, 37, 20, 38, 30, 17, 10, 13, 23, 46];
+
+function proAri(lista)
+{
+    var producto = 1;
+    lista.forEach(function(elemento)
+                 {
+                    producto *= elemento;
+                 }
+                 );
+    var rootIndex = 1/(lista.length);
+    var resultado = Math.pow(producto,rootIndex);
+    resultado = resultado.toFixed(2);
+    return resultado;
+};
