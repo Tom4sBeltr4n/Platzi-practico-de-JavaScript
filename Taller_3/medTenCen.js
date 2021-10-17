@@ -106,10 +106,10 @@ function modeFunction(elementos)
     return moda;
 }
 
-/*Reto: añadir promedio aritmético inicia aquí*/  
-var lisProAri = [21, 37, 20, 38, 30, 17, 10, 13, 23, 46];
+/*Reto: añadir promedio geométrico inicia aquí. El promediogeométrico se usa para dar importancia a datos pequeños, representar datos de distanciamiento o progresión multiplicada (geométrica), proporciones de tipo contable o financiero o usar logaritmos de datos. */  
+var lisProGeo = [21, 37, 20, 38, 30, 17, 10, 13, 23, 46];
 
-function proAri(lista)
+function proGeo(lista)
 {
     var producto = 1;
     lista.forEach(function(elemento)
