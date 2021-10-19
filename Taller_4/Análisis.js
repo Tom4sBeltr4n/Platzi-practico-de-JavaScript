@@ -3,30 +3,6 @@
 Formato de cada persona: objeto
 Buscamos: Total, promedio, mediana, y el 10% superior*/
 
-//Colombia se necesita para poder hacer pruebas en la consola sin gastar memoria con Live Server.
-const Colombia = [];
-Colombia.push({name:"Juanita Méndez", "salary": 2857.14});
-Colombia.push({name:"Natalia Páez", salary: 1426.57});
-Colombia.push({name:"Camilo Barajas", salary: 285.71});
-Colombia.push({name:"José Sierra", salary: 2142.86});
-Colombia.push({name:"Felipe Morales", salary: 1400.14});
-Colombia.push({name:"Catalina Rojas", salary: 1700.57});
-Colombia.push({name:"Mario Hernández", salary: 1474.48});
-Colombia.push({name:"Diana Torres", salary: 1800.86});
-Colombia.push({name:"Carlos Gutiérrez", salary: 828.93});
-Colombia.push({name:"Daniel López", salary: 2679.57});
-Colombia.push({name:"Clara Jiménez", salary: 1477.80});
-Colombia.push({name:"Jennifer Meléndez", salary: 2142.86});
-Colombia.push({name:"Arturo Carrera", salary: 2629.91});
-Colombia.push({name:"Alfonso Ordóñez", salary: 2188.41});
-Colombia.push({name:"Amanda Rodríguez", salary: 1833.19});
-Colombia.push({name:"John Espitia", salary: 947.29});
-Colombia.push({name:"Laura Domínguez", salary: 2798.81});
-Colombia.push({name:"Gabriela Aranguren", salary: 429.08});
-Colombia.push({name:"Rodolfo Arciniegas", salary: 1601.13});
-Colombia.push({name:"Augusto Londoño", salary: 711.62});
-
-
 //Mismo array pero con sólo salarios
 const salariosCol = Colombia.map
 (
@@ -56,12 +32,77 @@ const medianaGeneralCol = calMed(salariosCol);
 
 
 //Clase 21: top 10%
-//// Mediana del top 10%
+//// Promedio del top 10%
+function calPro(lista)
+{
+    const sumaLista = lista.reduce
+    (
+        function (valorAcumulado=0, nuevoElemento) //if empty, valorAcumulado defs to 0
+        {
+            return valorAcumulado + nuevoElemento;
+        }
+    )
+    const proLista = sumaLista/lista.length;
+
+    return proLista.toFixed(2);
+}
 const salariosOrdenados = salariosCol.sort(function(a,b){return a-b});
 const spliceStart = Math.floor(salariosOrdenados.length * 9 / 10);
 const spliceCount = salariosOrdenados.length - spliceStart;
 const salariosTop10Col = salariosOrdenados.splice(spliceStart, spliceCount);// splice basically goes through a book, takes some pages he likes and removes the cover and counter-cover of the book. :) It does include the start value
-console.log(salariosTop10Col);
+const proTop = calPro(salariosTop10Col);
 
-const medianaTopCol = calMed(salariosTop10Col);
-console.log(medianaTopCol);
+
+// desviación estándar (clase 22)
+function desEst(datos)
+{
+    var suma = 0;
+    datos.forEach
+    (
+        function(element)
+        {
+            suma = suma + element;
+        }
+    );
+    var proDesEst = suma/datos.length;
+    var suma2 = 0;
+    datos.forEach
+    (
+        function(element2)
+        {
+            var subDato = (element2-proDesEst)**2;
+            suma2 = suma2+subDato;
+        }
+    );
+    var valDesEst=Math.sqrt(suma2/datos.length);
+    return valDesEst.toFixed(2);
+};
+var desEstSal=desEst(salariosCol);
+
+//Promedio
+var suma3 = 0;
+salariosCol.forEach
+(
+    function(element)
+    {
+        suma3 = suma3 + element;
+    }
+);
+var salPro = (suma3/salariosCol.length).toFixed(2);
+
+//D10/D1
+var pot10 = salariosCol.slice(0,2);
+var salPot10 = calPro(pot10);
+var desigualdad = proTop-salPot10;
+
+
+var txtVrgWg = document.getElementById("avrgwg");
+var txtVrgWg2 = document.getElementById("avrgwg2");
+var txtMdnWg = document.getElementById("mdngwg");
+var txtInqlt = document.getElementById("dcls");
+var txtDesEst = document.getElementById("dsvcnstndr");
+txtVrgWg.innerHTML= salPro;
+txtVrgWg2.innerHTML= salPro;
+txtMdnWg.innerHTML = medianaGeneralCol;
+txtInqlt.innerHTML = desigualdad;
+txtDesEst.innerHTML = desEstSal;

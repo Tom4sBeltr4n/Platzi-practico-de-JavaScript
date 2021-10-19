@@ -4,10 +4,48 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            *
+            {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            body
+            {
+                padding-left: 1%;
+            }
+            .lined
+            {
+                display:inline;
+            }
+            h1
+            {
+                text-align: center;
+            }
+        </style>
         <title>Salarios</title>
     </head>
     <body>
-        <h1>¡Calcula las medidas de tendencia central que quieras!</h1>
+        <!-- FICCIÓN -->
+        <h1>Estudio de salarios</h1>
+        <p>Este es un pequeño estudio de un barrio en Riviera; un municipio poco conocido de Colombia</p>
+        <h2>Salario medio</h2>
+        <p class="lined">El salario medio en Riviera es de <p class="lined" id ="avrgwg"></p> USD</p>
+        <br>
+        <h2>Salario mediano</h2>
+        <p class="lined">El salario mediano en Riviera es de <p class="lined" id ="mdngwg"></p> USD</p>
+        <br>
+        <h2>Desigualdad en deciles</h2>
+        <p class="lined">La desigualdad en deciles se mide como la diferencia en el salario promedio del 10% más rico con el salario promedio del 10% más pobre. Para el caso de Riviera es de <p class="lined" id ="dcls"></p> USD</p>
+        <br>
+        <h2>Desviación estándar</h2>
+        <p class="lined">La desviación estandar es la dispersión de los datos. Para el caso de Riviera es de <p class="lined" id ="dsvcnstndr"></p> USD</p>
+        <br>
+        <h2>Conclusión</h2>
+        <p>Debido a que el salario medio en Riviera es de <p class="lined" id ="avrgwg2"></p> USD, se recomienda que el salario mínimo legal no supere el 60% de este valor, pues podría provocar informalidad o desempleo. Es adecuado usar el medio para la recomendación, pues la mediana no está demasiado lejos. También hay que decir que la desigualdad está algo regulada, y hay que evitar que crezca. </p>
+        <!-- Desigualdad en deciles, recomendación sobre salario mínimo y desviación estándar -->
         <script src="Salarios.js"></script>
         <script src="Análisis.js"></script>
     </body>
