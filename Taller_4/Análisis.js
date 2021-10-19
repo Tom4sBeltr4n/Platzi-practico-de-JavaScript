@@ -2,6 +2,8 @@
 /* Datos de distintos países separados.
 Formato de cada persona: objeto
 Buscamos: Total, promedio, mediana, y el 10% superior*/
+
+//Colombia se necesita para poder hacer pruebas en la consola sin gastar memoria con Live Server.
 const Colombia = [];
 Colombia.push({name:"Juanita Méndez", "salary": 2857.14});
 Colombia.push({name:"Natalia Páez", salary: 1426.57});
@@ -24,6 +26,8 @@ Colombia.push({name:"Gabriela Aranguren", salary: 429.08});
 Colombia.push({name:"Rodolfo Arciniegas", salary: 1601.13});
 Colombia.push({name:"Augusto Londoño", salary: 711.62});
 
+
+//Mismo array pero con sólo salarios
 const salariosCol = Colombia.map
 (
     function(individuo)
@@ -32,6 +36,7 @@ const salariosCol = Colombia.map
     }
 );
 
+//Función calculando la mediana
 function calMed(lista)
 {
     lista.sort(function(a,b){return a-b});
@@ -47,4 +52,16 @@ function calMed(lista)
     }
 };
 
-console.log(calMed(salariosCol))
+const medianaGeneralCol = calMed(salariosCol);
+
+
+//Clase 21: top 10%
+//// Mediana del top 10%
+const salariosOrdenados = salariosCol.sort(function(a,b){return a-b});
+const spliceStart = Math.floor(salariosOrdenados.length * 9 / 10);
+const spliceCount = salariosOrdenados.length - spliceStart;
+const salariosTop10Col = salariosOrdenados.splice(spliceStart, spliceCount);// splice basically goes through a book, takes some pages he likes and removes the cover and counter-cover of the book. :) It does include the start value
+console.log(salariosTop10Col);
+
+const medianaTopCol = calMed(salariosTop10Col);
+console.log(medianaTopCol);
