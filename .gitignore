@@ -108,3 +108,4 @@ dist
 3*.txt
 .vscode
 *example.js
+presentable*
